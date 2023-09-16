@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto&display=swap');
+
+$dark-primary: #121212;
+$dark-secondary: #272727;
+$kaushan: 'Kaushan Script', cursive;
+$roboto: 'Roboto', sans-serif;
+
+@media screen and (max-width: 1200px) {
+  #hero {
+    max-width: 100%;
+  }
+  #hero #thumbnail {
+    max-height: 100%;
+  }
+}
+@media screen and (max-width: 992px) {
+  #btn-menu {
+    display: block;
+    max-width: 100px;
+    min-width: 70px;
+    height: 44px;
+    padding: 0;
+    font-size: 24px;
+    background-color: #272727;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-left: 20%;
+  }
+  #drawer {
+    width: 250px;
+    height: 200px;
+    top: 80px;
+    left: -260px;
+    position: absolute;
+    transition: transform 1s ease-in-out;
+    background-color: $dark-secondary;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  #hero {
+    max-width: 100%;
+  }
+  #hero #thumbnail {
+    max-height: 100%;
+  }
+  #hero .hero-detail {
+    position: relative;
+    margin-top: 20px;
+  }
+  #hero .hero-detail h1 {
+    font-size: 62px;
+  }
+  #hero .hero-detail h2 {
+    font-size: 28px;
+  }
+  #container {
+    grid-template-columns: 1fr 1fr;
+  }
+  #container h3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  #restaurant {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  #hero .hero-detail h1 {
+    font-size: 32px;
+  }
+  #hero .hero-detail h2 {
+    font-size: 20px;
+  }
+  #container {
+    grid-template-columns: 1fr;
+  }
+  #container h3 {
+    display: none;
+  }
+  footer p {
+    font-size: 14px;
+  }
+  #restaurant {
+    width: 100%;
+  }
+}

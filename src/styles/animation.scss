@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto&display=swap');
+
+$dark-primary: #121212;
+$dark-secondary: #272727;
+$kaushan: 'Kaushan Script', cursive;
+$roboto: 'Roboto', sans-serif;
+
+.loading {
+  color: #fff;
+  font-family: $roboto;
+  font-size: 18px;
+  animation: myLoading 1s infinite;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+@keyframes myLoading {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
