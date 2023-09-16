@@ -59,7 +59,7 @@ const createReviewTemplate = (review) => `<div>
 </div>`;
 
 const createLikeButtonTemplate = () => `
-  <button aria-label="add this resto to favorite " id="likeButton" class="like">
+  <button aria-label="add this resto to favorite" id="likeButton" class="like">
   <i class="fa fa-star-o" aria-hidden="true"></i>
   </button>
 `;
