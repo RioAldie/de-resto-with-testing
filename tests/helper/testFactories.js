@@ -1,7 +1,7 @@
-import LikeButtonPresenter from '../../src/scripts/utils/like-button-presenter';
+import LikeButtonInitiator from '../../src/scripts/utils/like-button-initiator';
 
-const createLikeButtonPresenterWithMovie = async (resto) => {
-  await LikeButtonPresenter.init({
+const createLikeButtonInitiatorWithResto = async (resto) => {
+  await LikeButtonInitiator.init({
     likeButtonContainer: document.querySelector(
       '#likeButtonContainer'
     ),
@@ -10,4 +10,4 @@ const createLikeButtonPresenterWithMovie = async (resto) => {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export { createLikeButtonPresenterWithMovie };
+export { createLikeButtonInitiatorWithResto };

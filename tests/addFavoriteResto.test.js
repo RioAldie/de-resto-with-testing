@@ -1,5 +1,5 @@
 import FavoriteRestoIdb from '../src/scripts/data/favorite-resto-idb';
-import LikeButtonInitiator from '../src/scripts/utils/like-button-initiator';
+import * as TestFactories from './helper/testFactories';
 
 describe('Liking A Resto', () => {
   const addLikeButtonContainer = () => {
@@ -9,14 +9,7 @@ describe('Liking A Resto', () => {
     addLikeButtonContainer();
   });
   it('harus menampilkan button unfavorite pada restaurant yang belum disukai', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector(
-        '#likeButtonContainer'
-      ),
-      resto: {
-        id: 1,
-      },
-    });
+    await TestFactories.createLikeButtonInitiatorWithResto({ id: 1 });
 
     expect(
       document.querySelector(
@@ -26,28 +19,14 @@ describe('Liking A Resto', () => {
   });
 
   it('harus tidak menampilkan button unfavorite pada restaurant yang belum disukai', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector(
-        '#likeButtonContainer'
-      ),
-      resto: {
-        id: 1,
-      },
-    });
+    await TestFactories.createLikeButtonInitiatorWithResto({ id: 1 });
     expect(
       document.querySelector('[aria-label="unfavorite this resto"]')
     ).toBeFalsy();
   });
 
   it('should be able to like the resto', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector(
-        '#likeButtonContainer'
-      ),
-      resto: {
-        id: 1,
-      },
-    });
+    await TestFactories.createLikeButtonInitiatorWithResto({ id: 1 });
 
     document
       .querySelector('#likeButton')
@@ -60,13 +39,8 @@ describe('Liking A Resto', () => {
     await FavoriteRestoIdb.deleteResto(1);
   });
 
-  xit('should not add a movie when it has no id', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector(
-        '#likeButtonContainer'
-      ),
-      resto: {},
-    });
+  it('should not add a movie when it has no id', async () => {
+    await TestFactories.createLikeButtonInitiatorWithResto({});
 
     document
       .querySelector('#likeButton')
