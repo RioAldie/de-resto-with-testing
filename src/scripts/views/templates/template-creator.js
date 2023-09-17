@@ -3,15 +3,15 @@ import CONFIG from '../../global/config';
 const createRestaurantItem = (
   resto
 ) => `<a href="/#/detail/${resto.id}">
-<article class="card">
+<article class="card resto__item">
   <img
     src="${CONFIG.BASE_IMAGE_URL}${resto.pictureId}"
     alt="${resto.name} photo"
     width="300px" height="200px" />
   <div class="card-detail">
-    <h6 class="tes">Rating : ${resto.rating} ★</h6>
-    <h5 class="tes">${resto.city}</h5>
-    <h4 class="tes">${resto.name}</h4>
+    <h6 class="resto-rate">Rating : ${resto.rating} ★</h6>
+    <h5 class="resto-city">${resto.city}</h5>
+    <h4 class="resto__title">${resto.name}</h4>
   </div>
 </article>
 </a>`;
