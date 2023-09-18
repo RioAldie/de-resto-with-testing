@@ -22,9 +22,9 @@ const createDetailRestaurant = (resto) => `
     alt="${resto.name} photo"
      />
   <div class="info-detail">
-    <h4 class="tes">${resto.name}</h4> 
-    <h5 class="tes">Rating : ${resto.rating} <span> ★ </span></h5>
-    <h5 class="tes">City: ${resto.city}</h5>
+    <h4 class="resto__title" value="${resto.id}">${resto.name}</h4> 
+    <h5 >Rating : ${resto.rating} <span> ★ </span></h5>
+    <h5 >City: ${resto.city}</h5>
     <h5>Address: ${resto.address} </h5>
     <p> ${resto.description}</p>
   </div>
@@ -53,7 +53,7 @@ const createMenuItemTemplate = (item) => `<div class="menu-item">
 </div>`;
 
 const createReviewTemplate = (review) => `<div>
-  <h5>${review.name}</h5>
+  <h5 id="review__name">${review.name}</h5>
   <h6>${review.date}</h6>
   <p>"${review.review}"</p>
 </div>`;
