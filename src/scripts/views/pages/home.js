@@ -9,11 +9,15 @@ const Home = {
   async render() {
     return `<header id="hero">
     <div id="thumbnail">
+    <picture>
+        <source media="(max-width: 600px)" srcset="./images/hero-image_1-small.jpg">
       <img
-        src="./images/heros/hero-image_1.jpg"
+        src="./images/hero-image_1-large.jpg"
         alt="thumbnail image"
         id="thumbnail-img"
-        width="100%" />
+        width="100%"
+        />
+        </picture>
     </div>
     <div class="hero-detail">
       <h1>De Resto.</h1>
