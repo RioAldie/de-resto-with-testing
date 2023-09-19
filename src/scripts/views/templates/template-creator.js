@@ -5,7 +5,7 @@ const createRestaurantItem = (
 ) => `<a href="/#/detail/${resto.id}">
 <article class="card resto__item">
   <img
-    src="${CONFIG.BASE_IMAGE_URL}${resto.pictureId}"
+  class="lazyload" data-src="${CONFIG.BASE_IMAGE_URL}${resto.pictureId}"
     alt="${resto.name} photo"
     width="300px" height="200px" />
   <div class="card-detail">
