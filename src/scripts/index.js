@@ -25,5 +25,5 @@ const skipToContent = document.querySelector('.skip-link');
 skipToContent.addEventListener('click', (event) => {
   event.preventDefault();
   console.log('onlcik');
-  document.querySelector('main').focus();
+  document.querySelector('#mainContent').focus();
 });
