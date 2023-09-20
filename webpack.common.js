@@ -4,11 +4,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminWebpackPlugin =
   require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: {
     app: path.resolve(__dirname, 'src/scripts/index.js'),
-    sw: path.resolve(__dirname, 'src/scripts/sw.js'),
   },
   output: {
     filename: '[name].bundle.js',
@@ -68,7 +69,7 @@ module.exports = {
           to: path.resolve(__dirname, 'dist'),
           globOptions: {
             // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
-            ignore: ['**/images/**'],
+            ignore: ['**/images/hero-image_1.jpg**'],
           },
         },
       ],
@@ -79,6 +80,35 @@ module.exports = {
           quality: 50,
           progressive: true,
         }),
+      ],
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      swDest: './sw.bundle.js',
+      runtimeCaching: [
+        {
+          urlPattern: ({ url }) =>
+            url.href.startsWith(
+              'https://restaurant-api.dicoding.dev'
+            ),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'restaurant-dicoding-api',
+          },
+        },
+        {
+          urlPattern: ({ url }) =>
+            url.href.startsWith(
+              'https://restaurant-api.dicoding.dev/images/medium/'
+            ),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'restaurant-dicoding-image-api',
+          },
+        },
       ],
     }),
   ],
